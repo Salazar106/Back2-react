@@ -1,6 +1,6 @@
 FROM node:lts-alpine
-WORKDIR /contollers/index.js , App.js
+WORKDIR /app
 COPY package.json .
 RUN npm install
 COPY . .
-CMD ["node", "App.js"]
+CMD ["node","App.js"]
