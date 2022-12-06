@@ -19,7 +19,7 @@ app.delete('/deleteEnvio/:_id', controllers.deleteEnvio)
 
 const PORT = 4000;
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
   console.log("******************************************************");
   console.log("   👉👉 SERVIDOR FUNCIONANDO EN EL PUERTO " + PORT + "👈👈");
   console.log("******************************************************");
