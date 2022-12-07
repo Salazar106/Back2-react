@@ -1,29 +1,22 @@
 const express = require("express");
 const cors = require("cors");
 const db = require("./database/db");
-const controllers=require('./controllers')
-const register = require("./register");
-const login = require("./login");
-const getUserById = require("./getuserById");
-const envios = require("./envios");
-const obtenerEnvios = require("./obtenerEnvios");
-const obtenerEnvById=require('./getEnvById');
-const updateEnvio=require('./update');
-const deleteEnvio=require('./deleteEnv')
+const controllers=require('./controllers/index')
+
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-app.get('/user/:userId', getUserById);
-app.post('/register', register);
-app.post('/login', login);
-app.post('/envios', envios);
-app.get('/obtenerEnvios', obtenerEnvios)
-app.get('/obtenerEnvById/:id', obtenerEnvById)
-app.put('/updateEnvio/:id', updateEnvio)
-app.delete('/deleteEnvio/:_id', deleteEnvio)
+app.get('/user/:userId', controllers.getUserById);
+app.post('/register', controllers.register);
+app.post('/login', controllers.login);
+app.post('/envios', controllers.envios);
+app.get('/obtenerEnvios', controllers.obtenerEnvios)
+app.get('/obtenerEnvById/:id', controllers.obtenerEnvById)
+app.put('/updateEnvio/:id', controllers.updateEnvio)
+app.delete('/deleteEnvio/:_id', controllers.deleteEnvio)
 
 
 const PORT = 4000;
